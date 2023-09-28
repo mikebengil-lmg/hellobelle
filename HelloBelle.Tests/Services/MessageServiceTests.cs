@@ -15,7 +15,7 @@ public class MessageServiceTests
     [Fact]
     public void WhenNoServicePlanFeatures_ThenReturnError()
     {
-        const string expected = "Hello Belle";
+        const string expected = "Hello, I am Belle!";
         var result = _messageService.GetMessageForTheDay();
 
         Assert.Equal(expected, result);
