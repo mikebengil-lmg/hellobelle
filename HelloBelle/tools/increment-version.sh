@@ -12,6 +12,6 @@ IFS='.' read -ra parts <<< "$current_version"
 
 # Update the .csproj file with the new version
 new_version="${parts[0]}.${parts[1]}.${parts[2]}"
-sed -i '' "s/<Version>$current_version<\/Version>/<Version>$new_version<\/Version>/" "$csproj_file"
+sed -i "s/<Version>$current_version<\/Version>/<Version>$new_version<\/Version>/" "$csproj_file"
 
 echo "Version incremented to $new_version"
