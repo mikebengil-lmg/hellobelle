@@ -21,6 +21,6 @@ jobs:
 
       - name: Increment Version
         run: |
-          csproj_file="Hellobelle.csproj"
-          bash Hellobelle/tools/increment-version.sh "$csproj_file"
+          csproj_file="HelloBelle/HelloBelle.csproj"
+          bash "HelloBelle/tools/increment-version.sh" "$csproj_file"
         working-directory: ${{ github.workspace }}
