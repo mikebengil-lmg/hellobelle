@@ -10,6 +10,6 @@ public class MessageService: IMessageService
     public string GetMessageForTheDay()
     {
         //just printing my name.
-        return "Hello Belle";
+        return "Hello, I am Belle!";
     }
 }
