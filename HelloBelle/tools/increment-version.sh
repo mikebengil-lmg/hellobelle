@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to the .csproj file
-csproj_file="../HelloBelle.csproj"
+csproj_file="HelloBelle/HelloBelle.csproj"
 
 # Get the current version from the .csproj file using basic regular expressions
 current_version=$(grep -o '<Version>[^<]*' "$csproj_file" | sed 's/<Version>//')
