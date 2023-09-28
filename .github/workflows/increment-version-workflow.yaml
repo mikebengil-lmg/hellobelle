@@ -13,16 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Debug Working Directory
+      - name: Configure Git user
         run: |
-          pwd  # Print the current working directory
-          find HelloBelle  # Display the directory tree within the 'src' directory
-        working-directory: ${{ github.workspace }}
-
-      - name: Debug - Print File Contents Before
-        run: |
-          cat "HelloBelle/HelloBelle.csproj"
-        working-directory: ${{ github.workspace }}
+          git config --global user.email "mike.bengil@gmail.com"
+          git config --global user.name "Mike Bengil"
 
       - name: Increment Version
         run: |
