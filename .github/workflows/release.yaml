@@ -27,7 +27,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
+          name: hellobelle-release
           path: ./HelloBelle/bin/Release/net7.0/ # Adjust the path to your artifact
 
       - name: Create GitHub Release
@@ -40,6 +40,8 @@ jobs:
 
       - name: Get Release URL
         id: get_release_url
-        run: echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
+        run:
+          echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
+    
     
     # You can add more steps here for deploying or notifying as needed
