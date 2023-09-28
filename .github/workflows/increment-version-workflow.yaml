@@ -1,0 +1,23 @@
+#name: Increment Version
+#
+#on:
+#  push:
+#    branches:
+#      - master
+#
+#jobs:
+#  incrementversion:  # You can change this name to something descriptive
+#    runs-on: ubuntu-latest  # You can choose a different runner environment here
+#
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Increment Version
+#        run: |
+#          csproj_file="Hellobelle/Hellobelle.csproj"  # Update the path to the .csproj file
+#          bash Hellobelle/tools/increment-version.sh
+#          git add "$csproj_file"
+#          git commit -m "Increment version"
+#          git push
+#        working-directory: ${{ github.workspace }}
