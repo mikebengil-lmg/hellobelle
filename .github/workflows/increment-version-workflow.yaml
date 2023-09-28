@@ -16,13 +16,11 @@ jobs:
       - name: Debug Working Directory
         run: |
           pwd  # Print the current working directory
+          find src  # Display the directory tree within the 'src' directory
         working-directory: ${{ github.workspace }}
 
       - name: Increment Version
         run: |
           csproj_file="Hellobelle.csproj"
-          bash tools/increment-version.sh "$csproj_file"
-          git add "$csproj_file"
-          git commit -m "Increment version"
-          git push
+          bash Hellobelle/tools/increment-version.sh "$csproj_file"
         working-directory: ${{ github.workspace }}
