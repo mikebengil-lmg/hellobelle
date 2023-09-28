@@ -2,8 +2,8 @@ name: Create GitHub Release
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - '*'
 
 jobs:
   release:
@@ -34,7 +34,8 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./HelloBelle/bin/Release/net7.0/* # Adjust the path to your artifact directory
+          files: ./HelloBelle/bin/Release/net7.0/*
+          tag_name: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
 
