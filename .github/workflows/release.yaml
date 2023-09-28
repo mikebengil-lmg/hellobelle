@@ -1,0 +1,45 @@
+name: Create GitHub Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0' # Adjust to your target .NET Core version
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: ./HelloBelle/bin/Release/net7.0/ # Adjust the path to your artifact
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./HelloBelle/bin/Release/net7.0/* # Adjust the path to your artifact directory
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
+
+      - name: Get Release URL
+        id: get_release_url
+        run: echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
+    
+    # You can add more steps here for deploying or notifying as needed
