@@ -21,7 +21,7 @@ jobs:
 
       - name: Debug - Print File Contents Before
         run: |
-          cat Hellobelle.csproj
+          cat "HelloBelle/HelloBelle.csproj"
         working-directory: ${{ github.workspace }}
 
       - name: Increment Version
