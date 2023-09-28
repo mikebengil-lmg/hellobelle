@@ -28,4 +28,7 @@ jobs:
         run: |
           csproj_file="HelloBelle/HelloBelle.csproj"
           bash "HelloBelle/tools/increment-version.sh" "$csproj_file"
+          git add "$csproj_file"
+          git commit -m "Increment version"
+          git push
         working-directory: ${{ github.workspace }}
