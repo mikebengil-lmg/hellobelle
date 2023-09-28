@@ -15,8 +15,8 @@ jobs:
 
       - name: Increment Version
         run: |
-          csproj_file="/Hellobelle/Hellobelle.csproj"  # Update the path to the .csproj file
-          bash /Hellobelle/tools/increment-version.sh "$csproj_file"
+          csproj_file="Hellobelle/Hellobelle.csproj"  # Update the path to the .csproj file
+          bash Hellobelle/tools/increment-version.sh
           git add "$csproj_file"
           git commit -m "Increment version"
           git push
