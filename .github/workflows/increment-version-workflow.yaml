@@ -19,6 +19,11 @@ jobs:
           find HelloBelle  # Display the directory tree within the 'src' directory
         working-directory: ${{ github.workspace }}
 
+      - name: Debug - Print File Contents Before
+        run: |
+          cat Hellobelle.csproj
+        working-directory: ${{ github.workspace }}
+
       - name: Increment Version
         run: |
           csproj_file="HelloBelle/HelloBelle.csproj"
