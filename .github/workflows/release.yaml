@@ -36,8 +36,6 @@ jobs:
         with:
           files: ./HelloBelle/bin/Release/net7.0/*
           tag_name: ${{ github.ref }}
-          permissions:
-            contents: write # Set permissions for contents
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
 
