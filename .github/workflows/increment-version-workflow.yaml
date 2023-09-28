@@ -16,7 +16,7 @@ jobs:
       - name: Debug Working Directory
         run: |
           pwd  # Print the current working directory
-          find src  # Display the directory tree within the 'src' directory
+          find HelloBelle  # Display the directory tree within the 'src' directory
         working-directory: ${{ github.workspace }}
 
       - name: Increment Version
