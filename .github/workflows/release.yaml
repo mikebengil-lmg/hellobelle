@@ -38,30 +38,18 @@ jobs:
           tag_name: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
+      
+      #      - name: Get Release URL
+      #        id: get_release_url
+      #        run: |
+      #          echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
 
-#      - name: Get Release URL
-#        id: get_release_url
-#        run: |
-#          echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
-
-      - name: Configure Git
-        run: |
-          git config --global user.email "mike.bengil@gmail.com"
-          git config --global user.name "Mike Bengil"
-          
       - name: Deploy to GitHub Pages
-        run: |
-          git clone https://github.com/${{ github.repository }}.git gh-pages
-          cd gh-pages
-          git checkout --orphan gh-pages
-          git rm -rf .
-          cp -R ../HelloBelle/bin/Release/net7.0/* .
-          git add .
-          git commit -m "Deploy release assets to GitHub Pages"
-          echo "test"
-          git push --force origin gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}         
-          
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./HelloBelle/bin/Release/net7.0 # Specify the directory with your release assets
+          GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
+          # make sure GIT_BELLE_TOKEN_ARTIFACT has workflow, repo
+
 
 # You can add more steps here for deploying or notifying as needed
