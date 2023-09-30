@@ -66,7 +66,7 @@ jobs:
         with:
           publish_dir: ./HelloBelle/bin/Release/net7.0 # Specify the directory with your release assets
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
           # make sure GIT_BELLE_TOKEN_ARTIFACT has workflow, repo and user (read) have access
           
 
