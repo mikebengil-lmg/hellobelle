@@ -43,6 +43,11 @@ jobs:
 #        id: get_release_url
 #        run: |
 #          echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "mike.bengil@gmail.com"
+          git config --global user.name "belle bengil"
           
       - name: Deploy to GitHub Pages
         run: |
