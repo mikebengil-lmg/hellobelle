@@ -47,18 +47,17 @@ jobs:
       - name: Configure Git
         run: |
           git config --global user.email "mike.bengil@gmail.com"
-          git config --global user.name "Mike Bengil"
+          git config --global user.name "mikebengil-lmg"
           
       - name: Deploy to GitHub Pages
         run: |
-          git clone git@github.com/${{ github.repository }}.git gh-pages
+          git clone https://github.com/${{ github.repository }}.git gh-pages
           cd gh-pages
           git checkout --orphan gh-pages
           git rm -rf .
           cp -R ../HelloBelle/bin/Release/net7.0/* .
           git add .
           git commit -m "Deploy release assets to GitHub Pages"
-          echo "test"
           git push --force origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}         
