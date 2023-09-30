@@ -65,6 +65,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           publish_dir: ./HelloBelle/bin/Release/net7.0 # Specify the directory with your release assets
+          target_branch: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
           # make sure GIT_BELLE_TOKEN_ARTIFACT has workflow, repo and user (read) have access
