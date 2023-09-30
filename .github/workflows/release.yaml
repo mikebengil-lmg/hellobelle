@@ -47,7 +47,7 @@ jobs:
       - name: Configure Git
         run: |
           git config --global user.email "mike.bengil@gmail.com"
-          git config --global user.name "mikebengil-lmg"
+          git config --global user.name "Mike Bengil"
           
       - name: Deploy to GitHub Pages
         run: |
