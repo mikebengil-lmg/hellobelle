@@ -58,8 +58,10 @@ jobs:
           cp -R ../HelloBelle/bin/Release/net7.0/* .
           git add .
           git commit -m "Deploy release assets to GitHub Pages"
+          echo "test"
           git push --force origin gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}
+          GITHUB_TOKEN: ${{ secrets.GIT_BELLE_TOKEN_ARTIFACT }}         
+          
 
 # You can add more steps here for deploying or notifying as needed
